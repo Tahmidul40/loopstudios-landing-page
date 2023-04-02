@@ -1,0 +1,38 @@
+@use "../util/" as u;
+@use "../globals/colors" as c;
+
+body {
+  font-size: 15px;
+  font-family: u.$font-alata;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  padding: 0 u.rem(45);
+
+  @include u.breakpoint-down(small) {
+    padding: 0 u.rem(16);
+  }
+
+  @include u.breakpoint(large) {
+    padding: 0 u.rem(80);
+  }
+
+  @include u.breakpoint(xlarge) {
+    padding: 0 u.rem(164);
+  }
+}

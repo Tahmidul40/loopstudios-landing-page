@@ -1,0 +1,180 @@
+@use "../util" as u;
+@use "../globals" as g;
+
+// ---------------- //
+// footer           //
+// ---------------- //
+
+.footer {
+  background-color: g.$black;
+  color: g.$white;
+  text-align: center;
+  padding: 110px 0;
+
+  @include u.breakpoint(large) {
+    padding: 44px 0;
+  }
+
+  @include u.breakpoint-down(small) {
+    padding: 60px 0;
+  }
+
+  &__container {
+    @include u.breakpoint(large) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo-links {
+    padding-bottom: 90px;
+
+    @include u.breakpoint(large) {
+      padding-bottom: 0;
+      display: inline;
+    }
+
+    @include u.breakpoint-down(small) {
+      padding-bottom: 70px;
+    }
+  }
+
+  &__logo {
+    width: u.rem(290);
+    margin-inline: auto;
+    padding-bottom: 60px;
+
+    @include u.breakpoint(large) {
+      width: 144px;
+      padding-bottom: 32px;
+      margin: initial;
+    }
+
+    @include u.breakpoint-down(small) {
+      width: 144px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__link {
+    line-height: 2.5;
+    font-size: 24px;
+    letter-spacing: 0.9px;
+
+    @include u.breakpoint-down(small) {
+      font-size: 15px;
+    }
+
+    a {
+      color: g.$white;
+      position: relative;
+
+      &:hover {
+        &::after {
+          content: "";
+          position: absolute;
+          width: 24px;
+          height: 2px;
+          background-color: hsl(0, 0%, 100%);
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    @include u.breakpoint(large) {
+      display: inline;
+      line-height: normal;
+      font-size: 15px;
+      margin-right: 32px;
+      letter-spacing: normal;
+    }
+  }
+
+  &__icons-copyright {
+    margin-bottom: 40px;
+
+    @include u.breakpoint(large) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__icons {
+    width: 290px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include u.breakpoint(large) {
+      justify-content: flex-end;
+      margin-bottom: 30px;
+    }
+
+    @include u.breakpoint-down(small) {
+      justify-content: space-evenly;
+    }
+  }
+
+  &__icon {
+    a {
+      img {
+        width: 48px;
+        height: 48px;
+
+        @include u.breakpoint(large) {
+          width: 24px;
+          height: 24px;
+          margin-left: 16px;
+        }
+
+        @include u.breakpoint-down(small) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      &:hover {
+        &::after {
+          content: "";
+          position: absolute;
+          margin-left: -4px;
+          margin-top: 8px;
+          width: 24px;
+          height: 2px;
+          background-color: g.$white;
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    font-size: 24px;
+    color: g.$dark-gray;
+
+    @include u.breakpoint(large) {
+      font-size: 15px;
+    }
+
+    @include u.breakpoint-down(small) {
+      font-size: 15px;
+    }
+  }
+
+  &__attribution {
+    font-size: 15px;
+    text-align: center;
+    color: g.$white;
+
+    a {
+      color: hsl(228, 45%, 44%);
+      text-decoration: underline;
+    }
+
+    @include u.breakpoint-down(small) {
+      font-size: 11px;
+    }
+  }
+}

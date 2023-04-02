@@ -1,0 +1,314 @@
+@use "../util" as u;
+@use "../globals" as g;
+
+// ---------------- //
+// main             //
+// ---------------- //
+
+main {
+  padding: u.rem(190) 0;
+
+  @include u.breakpoint(large) {
+    padding: u.rem(160) 0 0 0;
+  }
+
+  @include u.breakpoint-down(small) {
+    padding: u.rem(100) 0;
+  }
+}
+
+// ---------------- //
+// about            //
+// ---------------- //
+
+.about {
+  margin-bottom: u.rem(190);
+  position: relative;
+
+  @include u.breakpoint-down(small) {
+    margin-bottom: u.rem(100);
+  }
+
+  &__img {
+    background-image: url("../../../images/mobile/image-interactive.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: u.rem(650);
+    height: u.rem(445);
+    margin-inline: auto;
+    margin-bottom: u.rem(90);
+
+    @include u.breakpoint(large) {
+      background-image: url("../../../images/desktop/image-interactive.jpg");
+      max-width: u.rem(730);
+      margin: initial;
+    }
+
+    @include u.breakpoint-down(small) {
+      background-size: contain;
+      height: u.rem(240);
+      margin-bottom: u.rem(40);
+    }
+  }
+
+  &__content {
+    text-align: center;
+
+    @include u.breakpoint(large) {
+      background-color: g.$white;
+      position: absolute;
+      width: u.rem(545);
+      height: u.rem(317);
+      bottom: -1px;
+      right: 0;
+      padding: u.rem(96) 0 0 u.rem(96);
+      text-align: left;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: u.rem(64);
+    font-weight: 300;
+    margin-bottom: u.rem(30);
+
+    @include u.breakpoint(large) {
+      font-size: u.rem(42);
+      margin-bottom: u.rem(28);
+    }
+
+    @include u.breakpoint-down(small) {
+      font-size: u.rem(28);
+    }
+  }
+
+  &__desc {
+    color: g.$very-dark-gray;
+    font-size: u.rem(20);
+    padding: 0 u.rem(100);
+    line-height: 1.75;
+
+    @include u.breakpoint(large) {
+      padding: 0;
+      font-size: u.rem(15);
+    }
+
+    @include u.breakpoint-down(small) {
+      font-size: u.rem(14);
+      padding: 0;
+    }
+  }
+}
+
+// ---------------- //
+// product          //
+// ---------------- //
+
+.product {
+  // margin-bottom: 190px;
+  position: relative;
+
+  @include u.breakpoint(large) {
+    margin-bottom: u.rem(184);
+  }
+
+  &__header {
+    @include u.breakpoint(large) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: u.rem(64);
+    font-weight: 300;
+    margin-bottom: u.rem(30);
+
+    @include u.breakpoint(large) {
+      margin-bottom: 0;
+      font-size: u.rem(42);
+    }
+
+    @include u.breakpoint-down(small) {
+      font-size: u.rem(28);
+    }
+  }
+
+  &__btn {
+    border: 2px solid g.$black;
+    padding: u.rem(20) u.rem(60) u.rem(18);
+    text-transform: uppercase;
+    letter-spacing: u.rem(10);
+    background-color: g.$white;
+    font-family: u.$font-alata;
+    font-size: u.rem(18);
+    font-weight: 400;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include u.breakpoint(large) {
+      position: initial;
+      transform: initial;
+      padding: u.rem(14) 0 u.rem(12) 0;
+      width: u.rem(160);
+      font-size: u.rem(15);
+      letter-spacing: u.rem(6);
+    }
+
+    &:hover {
+      background-color: g.$black;
+      color: g.$white;
+      transition: all ease 0.1s;
+    }
+  }
+
+  &__content {
+    padding: u.rem(100) 0 u.rem(167);
+    display: grid;
+    gap: u.rem(48);
+
+    @include u.breakpoint(large) {
+      grid-template-columns: repeat(3, 1fr);
+      padding: u.rem(84) 0 0 0;
+    }
+
+    @include u.breakpoint(xlarge) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: u.rem(30);
+    }
+
+    @include u.breakpoint-down(small) {
+      padding: 0;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    max-width: u.rem(650);
+    height: auto;
+    display: flex;
+    align-items: end;
+    padding: u.rem(32) u.rem(42);
+    margin: auto;
+    position: relative;
+
+    &:hover {
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(g.$white, 0.75);
+      }
+
+      h3 {
+        color: g.$black;
+        z-index: 99;
+      }
+    }
+
+    @include u.breakpoint(large) {
+      width: u.rem(256);
+      height: u.rem(450);
+      padding: u.rem(34) u.rem(42);
+    }
+
+    @include u.breakpoint-down(small) {
+      padding: u.rem(60) u.rem(10) u.rem(20);
+      min-width: u.rem(343);
+    }
+  }
+
+  &__item-title {
+    color: g.$white;
+    font-size: u.rem(42);
+    text-transform: uppercase;
+    text-align: left;
+
+    @include u.breakpoint(large) {
+      font-size: u.rem(32);
+    }
+
+    @include u.breakpoint-down(small) {
+      font-size: u.rem(20);
+    }
+  }
+
+  .img-de {
+    background: url(../../../images/mobile/image-deep-earth.jpg) no-repeat
+      center;
+
+    @include u.breakpoint(large) {
+      background: url(../../../images/desktop/image-deep-earth.jpg) no-repeat
+        center;
+    }
+  }
+  .img-na {
+    background: url(../../../images/mobile/image-night-arcade.jpg) no-repeat
+      center;
+
+    @include u.breakpoint(large) {
+      background: url(../../../images/desktop/image-night-arcade.jpg) no-repeat
+        center;
+    }
+  }
+  .img-stv {
+    background: url(../../../images/mobile/image-soccer-team.jpg) no-repeat
+      center;
+
+    @include u.breakpoint(large) {
+      background: url(../../../images/desktop/image-soccer-team.jpg) no-repeat
+        center;
+    }
+  }
+  .img-tg {
+    background: url(../../../images/mobile/image-grid.jpg) no-repeat center;
+
+    @include u.breakpoint(large) {
+      background: url(../../../images/desktop/image-grid.jpg) no-repeat center;
+    }
+  }
+  .img-fuav {
+    background: url(../../../images/mobile/image-from-above.jpg) no-repeat
+      center;
+
+    @include u.breakpoint(large) {
+      background: url(../../../images/desktop/image-from-above.jpg) no-repeat
+        center;
+    }
+  }
+  .img-pb {
+    background: url(../../../images/mobile/image-pocket-borealis.jpg) no-repeat
+      center;
+
+    @include u.breakpoint(large) {
+      background: url(../../../images/desktop/image-pocket-borealis.jpg)
+        no-repeat center;
+    }
+  }
+  .img-tc {
+    background: url(../../../images/mobile/image-curiosity.jpg) no-repeat center;
+
+    @include u.breakpoint(large) {
+      background: url(../../../images/desktop/image-curiosity.jpg) no-repeat
+        center;
+    }
+  }
+  .img-mif {
+    background: url(../../../images/mobile/image-fisheye.jpg) no-repeat center;
+
+    @include u.breakpoint(large) {
+      background: url(../../../images/desktop/image-fisheye.jpg) no-repeat
+        center;
+    }
+  }
+}
